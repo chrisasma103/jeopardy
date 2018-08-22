@@ -1,0 +1,68 @@
+
+  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Jeopardy</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body class=teal>
+	<nav class="center waves-effect waves-light teal" role="navigation">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="/" class="brand-logo center">This...Is...Jeopardy!</a>
+		</div>
+	</nav>
+  
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h3 class="header center white-text">The answer is...</h1>
+      <div class="row center">
+          <h1 class="header col s12 white-text"><%=cookies[:answer].upcase%></h5>
+          <br>
+          <%if @closeness==true%>
+          <h5 class="white-text">You were correct! Your new score is $<%=cookies[:personalscore]%></h5>
+          <%else%>
+          <h5 class="white-text">Too bad! Your new score is $<%=cookies[:personalscore]%></h5>
+          <%end%>
+        <form class="col s12 center" action="/question" method="post">
+          <div class="row">
+            <span class="input-field col s12">
+              <br><br>
+              <p class="header col s12 white-text center">Click below to get a new question!</p>
+              <button class="btn waves-effect waves-light center btn-large" type="submit" name="action">New Question
+  					</button>
+            </span>
+            <br><br>
+              <br><br>
+              <br>
+          </div>
+        </form>
+      <br><br>
+    </div>
+  </div>
+  
+
+  
+  
+  <footer>
+			<div class="footer-copyright">
+				<div class="container white-text center">
+					<p>Email chrisasma103@gmail.com to report any bugs. This website is unaffiliated with Jeopardy!™. All rights to their respective
+						owners.</p>
+				</div>
+			</div>
+		</footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
