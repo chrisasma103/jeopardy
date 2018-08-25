@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 	<title>Jeopardy</title>
@@ -24,7 +25,7 @@
 			<h4 class="header center white-text">The category is: </h4>
 			<h2 class="header center white-text"><%=@clue.category.title.upcase%></h2>
 			<div class="row center">
-				<p class="header col s12 white-text"><%=@clue.question%></p>
+				<h4 class="header col s12 white-text"><%=@clue.question%></h4>
 				<div class="row">
 					<form class="col s12 center" action="/answer" method="post">
 						<div class="row">

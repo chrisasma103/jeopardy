@@ -2,7 +2,24 @@ require './config/environment'
 require './app/models/model' 
 require 'japi'
 require 'similar_text'
-#3: shotgun -p $PORT -o $IP
+
+=begin 
+How to run program: shotgun -p $PORT -o $IP
+
+How to push a software to github:
+rm -rf .git
+git init
+git add .
+git commit -m "string"
+git remote add origin url
+git push
+
+How to revise
+git add .
+git commit -m "string"
+git remote add origin master
+git push
+=end
 
 class ApplicationController < Sinatra::Base
   helpers Sinatra::Cookies
@@ -40,7 +57,9 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/answer' do
-    if ((cookies[:answer].to_s).similar(params["guess"].to_s))>=85
+    @guess=params["guess"]
+    @test=((cookies[:answer].to_s).similar(@guess)).to_s
+    if ((cookies[:answer].to_s).similar(@guess))>=85
       @closeness=true
       cookies[:personalscore]=cookies[:personalscore].to_i+cookies[:value].to_i
     else
